@@ -899,8 +899,10 @@ nav.scrolled {
         gap: var(--sp-8);
     }
     footer .container > div:first-child > div:last-child {
-        flex-direction: column;
-        gap: var(--sp-6);
+        flex-direction: row;
+        justify-content: center;
+        gap: var(--sp-8);
+        text-align: left; /* Aligns lists cleanly when side-by-side */
     }
     footer .container > div:last-child {
         flex-direction: column;
