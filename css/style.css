@@ -349,7 +349,6 @@ nav.scrolled {
 @media (max-width: 768px) {
     .hero {
         height: 100svh; /* Use SVH for better mobile support */
-        background: var(--bg); /* Fallback */
     }
     
     .hero-media {
