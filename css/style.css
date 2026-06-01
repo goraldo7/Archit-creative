@@ -269,6 +269,69 @@ nav.scrolled {
     z-index: 1; /* Above the image */
 }
 
+/* Background video to replace hero image */
+#bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2; /* behind gradient overlay */
+}
+
+/* Large subtle rotating words behind hero content to convey vibe */
+.hero-bg-words {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2; /* above the gradient overlay, behind the hero text */
+    pointer-events: none;
+    mix-blend-mode: screen;
+}
+
+.hero-bg-words::before {
+    content: 'MARKETING BOARDROOM STRATEGY TECH VISION';
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 900;
+    font-size: clamp(3rem, 10vw, 8rem);
+    color: rgba(255,255,255,0.07);
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    opacity: 0.35;
+    transform: rotate(-2deg) scale(1.02);
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.hero-bg-words .word {
+    position: relative;
+    z-index: 2;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 900;
+    font-size: clamp(4rem, 15vw, 12rem);
+    color: rgba(255,255,255,0.16);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    line-height: 0.9;
+    transition: opacity 0.8s cubic-bezier(.2,.9,.2,1), transform 0.8s;
+    opacity: 0;
+    transform: translateY(12px) scale(0.96);
+    white-space: nowrap;
+    text-shadow: 0 0 40px rgba(255,255,255,0.12);
+}
+
+[data-theme="light"] .hero-bg-words .word {
+    color: rgba(0,0,0,0.06);
+}
+
 .hero-content {
     text-align: center;
     z-index: 10;
@@ -310,7 +373,7 @@ nav.scrolled {
 }
 
 .motion-bg {
-    display: none;
+    display: block;
     position: absolute;
     top: 0;
     left: 0;
@@ -318,11 +381,12 @@ nav.scrolled {
     height: 100%;
     overflow: hidden;
     z-index: -1;
+    pointer-events: none;
 }
 
-[data-theme="light"] .motion-bg {
-    display: block;
-}
+/* Make motion blobs subtler in dark mode and more visible in light mode */
+[data-theme="dark"] .motion-bg { opacity: 0.12; }
+[data-theme="light"] .motion-bg { opacity: 0.9; }
 
 .blob {
     position: absolute;

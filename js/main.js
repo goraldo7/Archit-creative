@@ -53,21 +53,23 @@ const themeToggle = document.getElementById('theme-toggle');
 const themeIcon = document.getElementById('theme-icon');
 const htmlElement = document.documentElement;
 
-// Check for saved theme preference
+// Use saved theme preference, default to dark if none exists
 const savedTheme = localStorage.getItem('theme') || 'dark';
 htmlElement.setAttribute('data-theme', savedTheme);
 updateThemeIcon(savedTheme);
 
-themeToggle.addEventListener('click', () => {
-    const currentTheme = htmlElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    
-    htmlElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    updateThemeIcon(newTheme);
-});
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = htmlElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        htmlElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateThemeIcon(newTheme);
+    });
+}
 
 function updateThemeIcon(theme) {
+    if (!themeIcon) return;
     if (theme === 'dark') {
         themeIcon.setAttribute('icon', 'lucide:moon');
     } else {
@@ -77,8 +79,9 @@ function updateThemeIcon(theme) {
 
 // Hero Entrance Animation - REVERTED TO SIMPLE
 const heroTl = gsap.timeline();
-heroTl.from('.hero-media img', {
-    scale: 1.1,
+const heroMediaSelector = document.getElementById('bg-video') ? '#bg-video' : '.hero-media img';
+heroTl.from(heroMediaSelector, {
+    scale: 1.06,
     opacity: 0,
     duration: 2,
     ease: "power2.out"
@@ -108,6 +111,73 @@ heroTl.from('.hero-media img', {
     ease: "power3.out"
 }, "-=0.6")
 ;
+
+// Background rotating words for 'marketing / board / tech' vibe
+(function initHeroWords(){
+    const words = ['MARKETING', 'BOARDROOM', 'STRATEGY', 'TECH', 'VISION'];
+    const el = document.getElementById('hero-word');
+    if (!el) return;
+    let i = 0;
+    function showWord(){
+        el.classList.remove('show');
+        setTimeout(() => {
+            el.textContent = words[i];
+            el.classList.add('show');
+            i = (i + 1) % words.length;
+        }, 220);
+    }
+    showWord();
+    setInterval(showWord, 3200);
+})();
+
+// Video fallback: if the video fails to load or can't play, replace it with a fallback image
+(function setupVideoFallback(){
+    const vid = document.getElementById('bg-video');
+    const container = document.querySelector('.hero-media');
+    if (!vid || !container) return;
+
+    let handled = false;
+
+    function useFallback(){
+        if (handled) return;
+        handled = true;
+        // Remove video element
+        try { vid.pause(); } catch(e){}
+        vid.remove();
+        // Create an img as fallback
+        const img = document.createElement('img');
+        img.src = 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2070&auto=format&fit=crop';
+        img.alt = 'Hero Background';
+        img.style.width = '100%';
+        img.style.height = '100%';
+        img.style.objectFit = 'cover';
+        img.className = 'hero-bg-fallback';
+        container.insertBefore(img, container.querySelector('.hero-bg-words'));
+    }
+
+    // If the video errors or no sources can play
+    vid.addEventListener('error', useFallback);
+    vid.addEventListener('stalled', useFallback);
+
+    // If the browser reports it can't play through, fallback
+    vid.addEventListener('loadedmetadata', () => {
+        // Some browsers block autoplay policies — check if it's actually playing
+        setTimeout(() => {
+            if (vid.paused) {
+                // Try to play programmatically (may still be blocked)
+                const p = vid.play();
+                if (p && p.catch) p.catch(useFallback);
+            }
+        }, 100);
+    });
+
+    // As a final guard, if nothing happened after 2.5s, fallback
+    setTimeout(() => {
+        if (!handled && (vid.readyState < 2 || vid.paused)) {
+            useFallback();
+        }
+    }, 2500);
+})();
 
 
 
