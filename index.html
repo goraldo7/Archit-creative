@@ -124,35 +124,32 @@
                     </div>
 
                     <!-- Skincare & Beauty Section -->
-                    <div style="margin-top: 120px; padding-top: 80px; border-top: 1px solid var(--border);">
+                    <div class="skincare-section" style="margin-top: 120px; padding-top: 80px; border-top: 1px solid var(--border);">
                         <div class="section-header" style="margin-bottom: 60px;">
                             <h2>Specialise in <span class="accent-text">Skincare & Beauty</span> Rebranding</h2>
                             <p>Cinematic content, premium branding & strategic positioning for beauty & skincare brands.</p>
                         </div>
 
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+                        <div class="skincare-feature">
                             <!-- Video Section -->
-                            <div style="position: relative; border-radius: 12px; overflow: hidden; background: var(--card); border: 1px solid var(--border); height: 400px; display: flex; align-items: center; justify-content: center;">
-                                <video style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;" 
-                                    autoplay muted loop controls>
+                            <div class="skincare-video">
+                                <video class="skincare-video-player" autoplay muted loop controls>
                                     <source src="video/skincare%202.mp4" type="video/mp4">
                                     <source src="video/skincare%201.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
-                                <p style="position: absolute; color: var(--muted); text-align: center;">Beauty & Skincare Showcase Video</p>
+                                <p class="skincare-video-label">Beauty & Skincare Showcase Video</p>
                             </div>
 
                             <!-- Beauty Gallery Grid -->
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+                            <div class="skincare-gallery">
                                 <!-- Gallery 1 - Person Using Product -->
-                                <div style="background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: var(--transition);"
-                                    onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 20px 40px var(--accent-glow)'"
-                                    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                                <div class="skincare-card" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 20px 40px var(--accent-glow)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
                                     <img src="images/skincare%203.jpeg" 
-                                        alt="Skincare Application" style="width: 100%; height: 220px; object-fit: cover;">
-                                    <div style="padding: 16px;">
-                                        <h3 style="margin-bottom: 8px; font-size: 1rem;">Skincare Application</h3>
-                                        <p style="color: var(--muted); font-size: 0.85rem;">Professional beauty tutorials</p>
+                                        alt="Skincare Application" class="skincare-card-image">
+                                    <div class="skincare-card-copy">
+                                        <h3>Skincare Application</h3>
+                                        <p>Professional beauty tutorials</p>
                                     </div>
                                 </div>
 
@@ -161,34 +158,30 @@
                                     onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 20px 40px var(--accent-glow)'"
                                     onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
                                     <img src="images/skincare%204.jpeg" 
-                                        alt="Salon Setting" style="width: 100%; height: 220px; object-fit: cover;">
-                                    <div style="padding: 16px;">
-                                        <h3 style="margin-bottom: 8px; font-size: 1rem;">Premium Salon</h3>
-                                        <p style="color: var(--muted); font-size: 0.85rem;">Luxury beauty spaces</p>
+                                        alt="Salon Setting" class="skincare-card-image">
+                                    <div class="skincare-card-copy">
+                                        <h3>Premium Salon</h3>
+                                        <p>Luxury beauty spaces</p>
                                     </div>
                                 </div>
 
                                 <!-- Gallery 3 - Beauty Treatment -->
-                                <div style="background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: var(--transition);"
-                                    onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 20px 40px var(--accent-glow)'"
-                                    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                                <div class="skincare-card">
                                     <img src="images/skincare%205.jpeg" 
-                                        alt="Beauty Treatment" style="width: 100%; height: 220px; object-fit: cover;">
-                                    <div style="padding: 16px;">
-                                        <h3 style="margin-bottom: 8px; font-size: 1rem;">Premium Treatments</h3>
-                                        <p style="color: var(--muted); font-size: 0.85rem;">Expert skincare services</p>
+                                        alt="Beauty Treatment" class="skincare-card-image">
+                                    <div class="skincare-card-copy">
+                                        <h3>Premium Treatments</h3>
+                                        <p>Expert skincare services</p>
                                     </div>
                                 </div>
 
                                 <!-- Gallery 4 - Skincare Product -->
-                                <div style="background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: var(--transition);"
-                                    onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 20px 40px var(--accent-glow)'"
-                                    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                                <div class="skincare-card" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 20px 40px var(--accent-glow)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
                                     <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80" 
-                                        alt="Skincare Product" style="width: 100%; height: 220px; object-fit: cover;">
-                                    <div style="padding: 16px;">
-                                        <h3 style="margin-bottom: 8px; font-size: 1rem;">Skincare Product</h3>
-                                        <p style="color: var(--muted); font-size: 0.85rem;">Hero product shoot — brand-ready imagery</p>
+                                        alt="Skincare Product" class="skincare-card-image">
+                                    <div class="skincare-card-copy">
+                                        <h3>Skincare Product</h3>
+                                        <p>Hero product shoot — brand-ready imagery</p>
                                     </div>
                                 </div>
                             </div>
