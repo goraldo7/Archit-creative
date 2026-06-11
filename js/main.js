@@ -53,6 +53,15 @@ const themeToggle = document.getElementById('theme-toggle');
 const themeIcon = document.getElementById('theme-icon');
 const htmlElement = document.documentElement;
 
+function updateThemeIcon(theme) {
+    if (!themeIcon) return;
+    if (theme === 'dark') {
+        themeIcon.setAttribute('icon', 'lucide:sun');
+    } else {
+        themeIcon.setAttribute('icon', 'lucide:moon');
+    }
+}
+
 // Use saved theme preference, default to dark if none exists
 const savedTheme = localStorage.getItem('theme') || 'dark';
 htmlElement.setAttribute('data-theme', savedTheme);
@@ -66,15 +75,6 @@ if (themeToggle) {
         localStorage.setItem('theme', newTheme);
         updateThemeIcon(newTheme);
     });
-}
-
-function updateThemeIcon(theme) {
-    if (!themeIcon) return;
-    if (theme === 'dark') {
-        themeIcon.setAttribute('icon', 'lucide:moon');
-    } else {
-        themeIcon.setAttribute('icon', 'lucide:sun');
-    }
 }
 
 // Hero Entrance Animation - REVERTED TO SIMPLE
