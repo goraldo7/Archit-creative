@@ -268,6 +268,26 @@ gsap.utils.toArray('.phase-card').forEach((card) => {
     });
 });
 
+// Testimonial motion and photo float
+gsap.to('.testimonial-card', {
+    y: 16,
+    repeat: -1,
+    yoyo: true,
+    duration: 6,
+    ease: 'sine.inOut',
+    stagger: 0.15,
+    paused: false
+});
+gsap.to('.testimonial-profile img', {
+    y: 8,
+    repeat: -1,
+    yoyo: true,
+    duration: 7,
+    ease: 'sine.inOut',
+    stagger: 0.12,
+    paused: false
+});
+
 // Full Width Image Scale
 const teamImg = document.querySelector('section img[alt="Team"]');
 if (teamImg) {
