@@ -18,7 +18,7 @@
     <meta name="twitter:description" content="Cinematic content, premium web design, and AI-driven growth for beauty and lifestyle brands — Archit Creative.">
     <meta name="twitter:image" content="images/salon 2.jpeg">
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script defer src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
         <!-- Structured Data -->
         <script type="application/ld+json">
         {
@@ -30,6 +30,8 @@
             "logo": "images/logo.png"
         }
         </script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 
 <body>
@@ -107,7 +109,7 @@
                         <div class="work-item large">
                             <div class="work-img-wrapper">
                                 <img src="images/skincare 7.jpg"
-                                    alt="Project 1">
+                                    alt="Project 1" loading="lazy">
                             </div>
                             <div class="work-info">
                                 <h3>Radiant Botanics</h3>
@@ -117,7 +119,7 @@
                         <div class="work-item small">
                             <div class="work-img-wrapper">
                                 <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=2070&auto=format&fit=crop"
-                                    alt="Project 2">
+                                    alt="Project 2" loading="lazy">
                             </div>
                             <div class="work-info">
                                 <h3>Vogue Elite</h3>
@@ -127,7 +129,7 @@
                         <div class="work-item small">
                             <div class="work-img-wrapper">
                                 <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop"
-                                    alt="Project 3">
+                                    alt="Project 3" loading="lazy">
                             </div>
                             <div class="work-info">
                                 <h3>Modern Retail</h3>
@@ -168,7 +170,7 @@
                                 <!-- Gallery 1 - Person Using Product -->
                                 <div class="skincare-card" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 20px 40px var(--accent-glow)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
                                     <img src="images/skincare%203.jpeg" 
-                                        alt="Skincare Application" class="skincare-card-image">
+                                        alt="Skincare Application" class="skincare-card-image" loading="lazy">
                                     <div class="skincare-card-copy">
                                         <h3>Skincare Application</h3>
                                         <p>Professional beauty tutorials</p>
@@ -180,7 +182,7 @@
                                     onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 20px 40px var(--accent-glow)'"
                                     onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
                                     <img src="images/salon 3.jpeg" 
-                                        alt="Salon Setting" class="skincare-card-image">
+                                        alt="Salon Setting" class="skincare-card-image" loading="lazy">
                                     <div class="skincare-card-copy">
                                         <h3>Premium Salon</h3>
                                         <p>Luxury beauty spaces</p>
@@ -190,7 +192,7 @@
                                 <!-- Gallery 3 - Beauty Treatment -->
                                 <div class="skincare-card">
                                     <img src="images/skincare%205.jpeg" 
-                                        alt="Beauty Treatment" class="skincare-card-image">
+                                        alt="Beauty Treatment" class="skincare-card-image" loading="lazy">
                                     <div class="skincare-card-copy">
                                         <h3>Premium Treatments</h3>
                                         <p>Expert skincare services</p>
@@ -200,7 +202,7 @@
                                 <!-- Gallery 4 - Skincare Product -->
                                 <div class="skincare-card" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 20px 40px var(--accent-glow)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
                                     <img src="images/skincare 6.jpg" 
-                                        alt="Skincare Product" class="skincare-card-image">
+                                        alt="Skincare Product" class="skincare-card-image" loading="lazy">
                                     <div class="skincare-card-copy">
                                         <h3>Skincare Product</h3>
                                         <p>Hero product shoot — brand-ready imagery</p>
@@ -396,7 +398,7 @@
                         <article class="testimonial-card">
                             <div class="testimonial-profile">
                                 <img src="images/profile img.2.jpg"
-                                    alt="Black client portrait">
+                                    alt="Black client portrait" loading="lazy">
                                 <div>
                                     <h3>Amaka Okoro</h3>
                                 </div>
@@ -406,7 +408,7 @@
                         <article class="testimonial-card">
                             <div class="testimonial-profile">
                                 <img src="images/review img 2.jpg"
-                                    alt="Black male client portrait">
+                                    alt="Black male client portrait" loading="lazy">
                                 <div>
                                     <h3>kelechi nwosu</h3>
                                 </div>
@@ -416,7 +418,7 @@
                         <article class="testimonial-card">
                             <div class="testimonial-profile">
                                 <img src="images/profile img.jpg"
-                                    alt="Black female client portrait">
+                                    alt="Black female client portrait" loading="lazy">
                                 <div>
                                     <h3>David Eze</h3>
                                 </div>
@@ -545,7 +547,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
-    <script src="js/main.js"></script>
+    <script defer src="js/main.js"></script>
 </body>
 
 </html>
