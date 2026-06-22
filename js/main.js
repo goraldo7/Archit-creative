@@ -179,6 +179,34 @@ heroTl.from(heroMediaSelector, {
     }, 2500);
 })();
 
+// Trim video playback to a defined segment when start/end markers are provided
+(function setupTrimmedVideos() {
+    document.querySelectorAll('video[data-start][data-end]').forEach(video => {
+        const start = parseFloat(video.dataset.start) || 0;
+        const end = parseFloat(video.dataset.end);
+
+        if (isNaN(end) || end <= start) return;
+
+        function setStartFrame() {
+            if (!isNaN(video.duration) && video.duration > start) {
+                video.currentTime = start;
+            }
+        }
+
+        video.addEventListener('loadedmetadata', setStartFrame);
+        video.addEventListener('loadeddata', setStartFrame);
+
+        video.addEventListener('timeupdate', () => {
+            if (video.currentTime >= end) {
+                video.currentTime = start;
+                if (video.paused) {
+                    video.play().catch(() => {});
+                }
+            }
+        });
+    });
+})();
+
 
 
 // Marquee Speed Control on Scroll
